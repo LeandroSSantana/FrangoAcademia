@@ -2,19 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <head>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+              crossorigin="anonymous">
+    </head>
     <title>Homepage</title>
     <p>Frango Academia</p>
 </head>
 <body>
-    <br/>
-    <p>Faça seu Cadastro</p>
-    <br/>
-    <br/>
-     <form class="container" action="create" method="POST">
-            <input name ='name' class='form-control'/>
-            <button class='btn btn-primary'>Cadastrar</button>
+{% if sucesso != False %}
+<div class="alert alert-success" role="alert">
+    Frango adicionado ao Galinheiro!!
+</div>
+{% endif %}
+<br/>
+<p>Faça seu Cadastro</p>
+<br/>
+<br/>
+<form class="container" action="/create" method="POST">
+    <input required type="text" name='name' class='form-control' placeholder="Digite seu nome"/>
+    <input required type="text" name='telefone' class='form-control' placeholder="Telefone"/>
+    <input required type="text" name='email' class='form-control' placeholder="e-mail"/>
 
-     </form>
+    <select required name="objetivo">
+        <option value="" disabled selected>Escolha seu Objetivo</option>
+        <option value="hipertrofia">Hipertrofia</option>
+        <option value="emagrecimento">Emagrecimento</option>
+        <option value="condicionamento">Condicionamento</option>
+    </select>
+    <button type="button" class="btn btn-primary btn-sm">Cadastrar</button>
+</form>
+<div class="d-flex align-items-center justify-content-center">
+    <span>Veja quem também faz parte do Galinheiro</span>
+    <a class="btn btn-primary" href="/usuarios">Ir</a>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+    <span>Fale Conosco</span>
+    <a class="btn btn-primary" href="/contatos">Ir</a>
+</div>
 
 </body>
 </html>
