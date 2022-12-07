@@ -6,10 +6,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///frangoAcademia.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-# route -> frangoacademia.com/
-# função -> o que você quer exibir naquela página
-# template
-
 @app.route("/")
 def homepage():
     sucesso = request.args.get("sucesso", default=False)
@@ -21,12 +17,6 @@ with app.app_context():
 @app.route("/contatos")
 def contatos():
     return render_template("contatos.html")
-
-
-# @app.route("/usuarios/<nome_usuario>")
-# def usuarios(nome_usuario):
-#     return render_template("usuarios.html", nome_usuario=nome_usuario)
-
 
 @app.route('/create', methods=['POST'])
 def create():
