@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<form action='/usuarios/editar/{{aluno.id}}' method="POST">
+    <p>nome<input type="text" name="nome" value="{{aluno.nome}}"/></p>
+    <p>telefone<input type="text" name="telefone" value="{{aluno.telefone}}"/></p>
+    <p>email<input type="text" name="email" value="{{aluno.email}}"/></p>
+    <p>Objetivo
+        <select required name="objetivo">
+            <option value="" disabled>Escolha seu Objetivo</option>
+            <option value="Hipertrofia" {% if aluno.objetivo =='Hipertrofia' %} selected {% endif %}>Hipertrofia </option>
+            <option value="Emagrecimento"{% if aluno.objetivo =='Emagrecimento' %} selected {% endif %}>Emagrecimento</option>
+            <option value="Condicionamento"{% if aluno.objetivo =='Condicionamento' %} selected {% endif %}>Condicionamento</option>
+            <option value="Fortalecimento"{% if aluno.objetivo =='Fortalecimento' %} selected {% endif %}>Fortalecimento</option>
+        </select>
+    </p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+</body>
+</html>

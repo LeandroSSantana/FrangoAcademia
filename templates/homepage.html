@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <head>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
               crossorigin="anonymous">
-    </head>
     <title>Homepage</title>
-    <p>Frango Academia</p>
 </head>
-<body>
+<body class="container">
+<p class="text-center">Frango Academia</p>
 {% if sucesso != False %}
 <div class="alert alert-success" role="alert">
     Frango adicionado ao Galinheiro!!
@@ -21,26 +19,40 @@
 <p>Faça seu Cadastro</p>
 <br/>
 <br/>
-<form class="container" action="/create" method="POST">
-    <input required type="text" name='name' class='form-control' placeholder="Digite seu nome"/>
-    <input required type="text" name='telefone' class='form-control' placeholder="Telefone"/>
-    <input required type="text" name='email' class='form-control' placeholder="e-mail"/>
+<form action="/create" method="POST">
+    <div class="mb-3">
+        <label for="nome">Nome</label>
+        <input required id="nome" type="text" name='nome' class='form-control' placeholder="Digite seu nome"/>
+    </div>
 
-    <select required name="objetivo">
-        <option value="" disabled selected>Escolha seu Objetivo</option>
-        <option value="Hipertrofia">Hipertrofia</option>
-        <option value="Emagrecimento">Emagrecimento</option>
-        <option value="Condicionamento">Condicionamento</option>
-        <option value="Fortalecimento">Fortalecimento</option>
-    </select>
+    <div class="mb-3">
+        <label for="telefone">Telefone</label>
+        <input required id="telefone" type="text" name='telefone' class='form-control' placeholder="Telefone"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="email">Email</label>
+        <input required id="email" type="text" name='email' class='form-control' placeholder="e-mail"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="objetivo">Objetivo</label>
+        <select required id="objetivo" name="objetivo" class='form-control'>
+            <option value="" disabled selected>Escolha seu Objetivo</option>
+            <option value="Hipertrofia">Hipertrofia</option>
+            <option value="Emagrecimento">Emagrecimento</option>
+            <option value="Condicionamento">Condicionamento</option>
+            <option value="Fortalecimento">Fortalecimento</option>
+        </select>
+    </div>
     <button class='btn btn-primary'>Cadastrar</button>
 </form>
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex gap-3 align-items-center justify-content-center">
     <span>Veja quem também faz parte do Galinheiro</span>
     <a class="btn btn-primary" href="/usuarios">Ir</a>
 </div>
 
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex gap-3 align-items-center justify-content-center">
     <span>Fale Conosco</span>
     <a class="btn btn-primary" href="/contatos">Ir</a>
 </div>
